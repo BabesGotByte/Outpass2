@@ -75,9 +75,11 @@ public class navbar extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_editprofile) {
 
-        } else if (id == R.id.nav_history) {
-
-        } else if (id == R.id.nav_feedback) {
+        }
+//        } else if (id == R.id.nav_history) {
+//
+//        }
+        else if (id == R.id.nav_feedback) {
 
         } else if (id == R.id.nav_share) {
 
