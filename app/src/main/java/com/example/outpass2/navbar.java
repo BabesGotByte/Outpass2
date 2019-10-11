@@ -1,5 +1,6 @@
 package com.example.outpass2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,9 +83,15 @@ public class navbar extends AppCompatActivity
         else if (id == R.id.nav_feedback) {
 
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            String sharebody= "Play store link will be updated soon";
+            String sharesub =" Your subject here";
+            i.putExtra(Intent.EXTRA_SUBJECT,sharesub);
+            i.putExtra(Intent.EXTRA_TEXT,sharebody);
+            startActivity(Intent.createChooser(i,"Share using "));
+        } else if (id == R.id.nav_send){
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
