@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".feedback" />
         <activity
             android:name=".navbar"
             android:label="@string/title_activity_navbar"
