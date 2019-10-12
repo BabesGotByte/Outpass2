@@ -66,7 +66,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String email = inputEmail.getText().toString().trim()+"@iiita.ac.in";
+                final String email = inputEmail.getText().toString().trim()+"@iiita.ac.in";
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
@@ -99,8 +99,20 @@ public class RegisterFragment extends Fragment {
                                     Toast.makeText(getContext(), "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(getContext(), signup.class));
-                                    getActivity().finish();
+                                    String x=email;
+                                    x=x.substring(3,10);
+                                    try{
+                                        int x1=Integer.parseInt(x);
+                                        Intent intent = new Intent(getActivity(), signup.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+                                    }
+                                    catch (NumberFormatException e){
+//                flag =1;
+                                        Intent intent = new Intent(getActivity(), CaretakerActivity.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+                                    }
                                 }
                             }
                         });

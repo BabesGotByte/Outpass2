@@ -3,6 +3,9 @@ package com.example.outpass2;
 public class homee {
     private String going,purpose,date,time,vehicle;
 
+    public homee() {
+    }
+
     public homee(String going, String purpose, String date, String time, String vehicle) {
         this.going = going;
         this.purpose = purpose;
