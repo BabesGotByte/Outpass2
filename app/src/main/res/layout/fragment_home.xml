@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="@string/hello_blank_fragment" />-->
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -18,6 +13,9 @@
         android:fitsSystemWindows="true"
         tools:context="info.androidhive.firebase.LoginActivity">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -44,7 +42,6 @@
                 android:layout_marginBottom="10dp"
                 android:hint="Going To"
                 android:textAlignment="center"
-                android:inputType="textPassword"
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
@@ -56,30 +53,29 @@
                 android:layout_marginBottom="10dp"
                 android:hint="Purpose"
                 android:textAlignment="center"
-                android:inputType="textPassword"
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
-            <EditText
+            <TextView
                 android:id="@+id/datet"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Going Date"
+                android:textSize="20dp"
                 android:textAlignment="center"
-                android:inputType="textPassword"
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
 
-            <EditText
+            <TextView
                 android:id="@+id/timet"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Going Time"
+                android:textSize="20dp"
                 android:textAlignment="center"
-                android:inputType="textPassword"
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
@@ -90,7 +86,6 @@
                 android:layout_marginBottom="10dp"
                 android:hint="Vehicle"
                 android:textAlignment="center"
-                android:inputType="textPassword"
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
@@ -107,7 +102,7 @@
 
 
         </LinearLayout>
-
+        </ScrollView>
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="30dp"
