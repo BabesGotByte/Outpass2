@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString();
+                String email = inputEmail.getText().toString().trim()+"@iiita.ac.in";
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {

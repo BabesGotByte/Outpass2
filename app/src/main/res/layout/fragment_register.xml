@@ -24,19 +24,36 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="30dp"
-                android:src="@drawable/email" />
+                android:src="@drawable/keys" />
 
 
 
-            <EditText
-                android:id="@+id/CustId"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/CustId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Username"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text=" @iiita.ac.in"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+
+
+            </LinearLayout>
 
 
 

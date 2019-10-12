@@ -17,7 +17,16 @@ public class signup extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(signup.this, navbar.class));
+
+                if(photosStorage.photos!=null){
+                    if(photosStorage.photos.size()>=1) {
+                        finish();
+                        startActivity(new Intent(signup.this, navbar.class));
+                    }
+
+                }
+                startActivity(new Intent(signup.this, photo.class));
+
             }
         });
 
