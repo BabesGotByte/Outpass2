@@ -74,4 +74,17 @@ public class FirstTimeRegistration {
     public void setAccepted(Boolean accepted) {
         this.accepted = accepted;
     }
+
+    @Override
+    public String toString() {
+        return "FirstTimeRegistration{" +
+                "name='" + name + '\'' +
+                ", contact='" + contact + '\'' +
+                ", room='" + room + '\'' +
+                ", hostel='" + hostel + '\'' +
+                ", gname='" + gname + '\'' +
+                ", gnumber='" + gnumber + '\'' +
+                ", accepted=" + accepted +
+                '}';
+    }
 }

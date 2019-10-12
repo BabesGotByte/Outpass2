@@ -5,18 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fragmentContainer">
-
-    </FrameLayout>
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="164dp"
-        android:layout_height="71dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="Fragment history"
         tools:layout_editor_absoluteX="154dp"
         tools:layout_editor_absoluteY="124dp" />
+
+    <ProgressBar
+        android:id="@+id/pgHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="299dp"
+        android:visibility="visible"/>
 </android.support.constraint.ConstraintLayout>
