@@ -91,7 +91,7 @@ public class navbar extends AppCompatActivity
         }
 
         else if (id == R.id.nav_logout){
-            finish();
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
