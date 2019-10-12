@@ -20,41 +20,46 @@ public class navbar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth auth;
+    private DrawerLayout drawer;
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navbar);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         auth = FirebaseAuth.getInstance();
 
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        toolbar = findViewById(R.id.vtoolbar);
+        setSupportActionBar(toolbar);
+
+
+        drawer = findViewById(R.id.drawer_layout);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-//        fragment=new history();
-//        if (fragment != null) {
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//            ft.replace(R.id.fragment_container, fragment);
-//            ft.commit();
-//        }
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
+
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        else
             super.onBackPressed();
-        }
     }
 
     @Override
@@ -81,12 +86,8 @@ public class navbar extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment;
         if (id == R.id.nav_home) {
-//            fragment=new history();
-//            if (fragment != null) {
-//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//                ft.replace(R.id.fragment_container, fragment);
-//                ft.commit();
-//            }
+           getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new HomeFragment()).commit();
+                drawer.closeDrawer(GravityCompat.START);
         }
 
         else if (id == R.id.nav_editprofile) {
@@ -94,12 +95,12 @@ public class navbar extends AppCompatActivity
         }
 
         else if (id == R.id.nav_history) {
-            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new history()).commit();
-        }
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new history()).commit();
+            drawer.closeDrawer(GravityCompat.START);        }
 
         else if (id == R.id.nav_feedback) {
-            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new feed()).commit();
-        }
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new feed()).commit();
+            drawer.closeDrawer(GravityCompat.START);          }
 
         else if (id == R.id.nav_share) {
             Intent i = new Intent(Intent.ACTION_SEND);
@@ -117,8 +118,6 @@ public class navbar extends AppCompatActivity
             finish();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
