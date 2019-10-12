@@ -59,9 +59,8 @@ public class photo extends AppCompatActivity {
                 }
             }
         }
-//        if(i==2) {
-//            startActivity(new Intent(photo.this, navbar.class));
-//        }
+        photosStorage p=new photosStorage(photos);
+//
     }
 
     @Override
@@ -92,5 +91,6 @@ public class photo extends AppCompatActivity {
             startActivity(new Intent(photo.this, navbar.class));
         }
         //imageview.setImageBitmap(bitmap);
+        photosStorage p=new photosStorage(photos);
     }
 }

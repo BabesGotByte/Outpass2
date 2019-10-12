@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         //progressBar = (ProgressBar) findViewById(R.id.progress);
 
         try {
-            InputStream inputStream = getAssets().open("tenor.gif");
+            InputStream inputStream = getAssets().open("g1.gif");
             byte[] bytes = IOUtils.toByteArray(inputStream);
             gifImageView.setBytes(bytes);
             gifImageView.startAnimation();
