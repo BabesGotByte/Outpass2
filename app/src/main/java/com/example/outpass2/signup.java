@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,14 +14,18 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class signup extends AppCompatActivity {
+    private static final String TAG = "TAG";
     private EditText name_t,contact_t,room_t,hostel_t,gname_t,gnumber_t;
     private Button b1;
-    private FirstTimeRegistration firstTimeRegistration;
+    private FirstTimeRegistration firstTimeRegistration,firstTimeRegistration2=null;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     private ProgressBar pg;
@@ -28,10 +33,30 @@ public class signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+
 
         auth=FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        DocumentReference docRef = db.collection(auth.getCurrentUser().getEmail()).document("Details");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        finish();
+                        startActivity(new Intent(signup.this, navbar.class));
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+        setContentView(R.layout.activity_signup);
 
         b1=findViewById(R.id.but);
         name_t=findViewById(R.id.name);
@@ -87,21 +112,18 @@ public class signup extends AppCompatActivity {
 
                 firstTimeRegistration = new FirstTimeRegistration(name_e,contact_e,room_e,hostel_e,gname_e,gnumber_e,null);
 
-                db.collection(auth.getCurrentUser().getEmail()).document().set(firstTimeRegistration)
+                db.collection(auth.getCurrentUser().getEmail()).document("Details").set(firstTimeRegistration)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 pg.setVisibility(View.GONE);
                                 Toast.makeText(signup.this, "Your details has been successfully registered", Toast.LENGTH_SHORT).show();
-//                        progressBarShopRegistration.setVisibility(View.GONE);
-//                        Toast.makeText(getContext(), "Your Shop is successfully registered", Toast.LENGTH_SHORT).show();
 
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-//                                progressBarShopRegistration.setVisibility(View.GONE);
                                 pg.setVisibility(View.GONE);
                                 Toast.makeText(signup.this, "Some error occurred : "+e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
