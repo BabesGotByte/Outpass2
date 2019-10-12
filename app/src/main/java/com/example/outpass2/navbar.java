@@ -12,8 +12,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class navbar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,9 @@ public class navbar extends AppCompatActivity
         setContentView(R.layout.activity_navbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        auth = FirebaseAuth.getInstance();
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -91,11 +99,18 @@ public class navbar extends AppCompatActivity
         }
 
         else if (id == R.id.nav_logout){
-
+            signOut();
+            startActivity(new Intent(navbar.this,LoginActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void signOut() {
+        auth.signOut();
+    }
+
 }
