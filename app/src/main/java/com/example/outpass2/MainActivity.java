@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                MainActivity.this.startActivity(new Intent(MainActivity.this, navbar.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 MainActivity.this.finish();
             }
         },5000);

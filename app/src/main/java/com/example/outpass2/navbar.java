@@ -91,6 +91,7 @@ public class navbar extends AppCompatActivity
             i.putExtra(Intent.EXTRA_TEXT,sharebody);
             startActivity(Intent.createChooser(i,"Share using "));
         } else if (id == R.id.nav_send){
+
             finish();
         }
 
