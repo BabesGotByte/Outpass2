@@ -31,50 +31,47 @@ public class HomeFragment extends Fragment {
     public static final String TAG="MainActivity";
     private EditText going,timer,purpose,vehicle;
     private Button b1;
+    private TimePicker timePicker1 = null;
+    private TextView time;
+    private Calendar calendar;
+    private String format = "";
     private DatePickerDialog.OnDateSetListener dateSetListener;
-    private TimePickerDialog.OnTimeSetListener timeSetListener;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        going=view.findViewById(R.id.going);
-        purpose=view.findViewById(R.id.purpose);
-        date1=view.findViewById(R.id.datet);
-        timer=view.findViewById(R.id.timet);
-        vehicle=view.findViewById(R.id.vehicle);
-        b1=view.findViewById(R.id.submit);
+        going = view.findViewById(R.id.going);
+        purpose = view.findViewById(R.id.purpose);
+        date1 = view.findViewById(R.id.datet);
+        timer = view.findViewById(R.id.timet);
+        vehicle = view.findViewById(R.id.vehicle);
+        b1 = view.findViewById(R.id.submit);
+        time = view.findViewById(R.id.timet);
 
         date1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
-                int year=calendar.get(calendar.YEAR);
-                int month=calendar.get(calendar.MONTH);;
-                int day=calendar.get(calendar.DAY_OF_WEEK);
+                int year = calendar.get(calendar.YEAR);
+                int month = calendar.get(calendar.MONTH);
+                int day = calendar.get(calendar.DAY_OF_WEEK);
                 DatePickerDialog dialog = new DatePickerDialog(
                         getActivity(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         dateSetListener,
-                        year,month,day);
+                        year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
 
-//        timer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Calendar calendar = Calendar.getInstance();
-//                int hour=calendar.get(calendar.HOUR_OF_DAY);
-//                int minute=calendar.get(calendar.MINUTE);
-//                TimePickerDialog dialog2 = new TimePickerDialog(
-//                        getActivity(), (TimePickerDialog.OnTimeSetListener) getActivity(),
-//                        hour,minute, DateFormat.is24HourFormat(getContext()));
-//                dialog2.show();
-//            }
-//        });
+
+
+
+
 
         dateSetListener= new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -85,15 +82,6 @@ public class HomeFragment extends Fragment {
                 date1.setText(dater);
             }
         };
-
-//        timeSetListener= new TimePickerDialog.OnTimeSetListener() {
-//            @Override
-//            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-//                Log.d(TAG,"date"+hourOfDay+"/"+minute);
-//                timer.setText("time:"+" / "+hourOfDay+" / "+minute);
-//            }
-//        };
-
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

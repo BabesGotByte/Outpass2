@@ -79,6 +79,7 @@
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
+
             <EditText
                 android:id="@+id/vehicle"
                 android:layout_width="fill_parent"
