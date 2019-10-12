@@ -2,6 +2,8 @@ package com.example.outpass2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -29,6 +31,12 @@ public class navbar extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+//        fragment=new history();
+//        if (fragment != null) {
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            ft.replace(R.id.fragment_container, fragment);
+//            ft.commit();
+//        }
     }
 
     @Override
@@ -63,9 +71,14 @@ public class navbar extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Fragment fragment;
         if (id == R.id.nav_home) {
-
+//            fragment=new history();
+//            if (fragment != null) {
+//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                ft.replace(R.id.fragment_container, fragment);
+//                ft.commit();
+//            }
         }
 
         else if (id == R.id.nav_editprofile) {
@@ -73,11 +86,11 @@ public class navbar extends AppCompatActivity
         }
 
         else if (id == R.id.nav_history) {
-            //getSupportFragmentManager().beginTransaction().replace(new history()).commit();
+            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new history()).commit();
         }
 
         else if (id == R.id.nav_feedback) {
-            //getSupportFragmentManager().beginTransaction().replace(,new feed()).commit();
+            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new feed()).commit();
         }
 
         else if (id == R.id.nav_share) {
