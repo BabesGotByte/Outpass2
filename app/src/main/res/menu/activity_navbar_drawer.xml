@@ -12,10 +12,10 @@
             android:id="@+id/nav_editprofile"
             android:icon="@drawable/user"
             android:title="Edit Profile" />
-        <!--<item-->
-            <!--android:id="@+id/nav_history"-->
-            <!--android:icon="@drawable/history"-->
-            <!--android:title="History" />-->
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/history"
+            android:title="History" />
         <item
             android:id="@+id/nav_feedback"
             android:icon="@drawable/email"
@@ -29,7 +29,7 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/logout"
                 android:title="Logout" />
         </menu>
