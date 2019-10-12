@@ -27,9 +27,9 @@ import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
 
-    private TextView date1,timer;
+    private TextView date1;
     public static final String TAG="MainActivity";
-    private EditText going,purpose,vehicle;
+    private EditText going,timer,purpose,vehicle;
     private Button b1;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private TimePickerDialog.OnTimeSetListener timeSetListener;
@@ -100,6 +100,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 String going_t = going.getText().toString().trim();
                 String purpose_t = purpose.getText().toString().trim();
+                String timer_t = timer.getText().toString().trim();
                 String vehicle_t = vehicle.getText().toString().trim();
 
                 if (TextUtils.isEmpty(going_t)) {
@@ -108,6 +109,10 @@ public class HomeFragment extends Fragment {
                 }
                 if (TextUtils.isEmpty(purpose_t)) {
                     purpose.setError("This field should not be empty");
+                    return;
+                }
+                if (TextUtils.isEmpty(timer_t)) {
+                    timer.setError("This field should not be empty");
                     return;
                 }
                 if (TextUtils.isEmpty(vehicle_t)) {

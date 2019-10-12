@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString().trim()+"@iiita.ac.in";
+                final String email = inputEmail.getText().toString().trim()+"@iiita.ac.in";
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -104,9 +104,21 @@ public class LoginFragment extends Fragment {
                                         Toast.makeText(getContext(), "Authentication failed, check your email and password or sign up", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(getActivity(), signup.class);
-                                    startActivity(intent);
-                                    getActivity().finish();
+                                    String x=email;
+                                    x=x.substring(3,10);
+                                    try{
+                                        int x1=Integer.parseInt(x);
+                                        Intent intent = new Intent(getActivity(), signup.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+                                    }
+                                    catch (NumberFormatException e){
+//                flag =1;
+                                        Intent intent = new Intent(getActivity(), CaretakerActivity.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+                                    }
+
                                 }
                             }
                         });

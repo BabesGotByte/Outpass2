@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -16,8 +17,20 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, signup.class));
-            finish();
+//            int flag=0;
+            String x=auth.getCurrentUser().getEmail();
+            x=x.substring(3,10);
+            try{
+                int x1=Integer.parseInt(x);
+                startActivity(new Intent(LoginActivity.this, signup.class));
+                finish();
+            }
+            catch (NumberFormatException e){
+//                flag =1;
+                startActivity(new Intent(LoginActivity.this, CaretakerActivity.class));
+                finish();
+            }
+
         }
 
         setContentView(R.layout.activity_login);
