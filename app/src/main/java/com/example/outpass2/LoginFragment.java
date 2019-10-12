@@ -104,7 +104,7 @@ public class LoginFragment extends Fragment {
                                         Toast.makeText(getContext(), "Authentication failed, check your email and password or sign up", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(getActivity(), navbar.class);
+                                    Intent intent = new Intent(getActivity(), signup.class);
                                     startActivity(intent);
                                     getActivity().finish();
                                 }
