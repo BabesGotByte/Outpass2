@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,64 +23,15 @@ import java.util.TimerTask;
 public class photo extends AppCompatActivity {
 
     ArrayList<Bitmap> photos=new ArrayList<>();
-    File photoFile = null;
-    String currentPhotoPath;
-    ImageView i1;
-    TextView t1;
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
-    private void func(){
-        int i;
-        for(i=0;i<3;i++){
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, 0);
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                try {
-                    photoFile = createImageFile();
-
-                    finish();
-                }
-                catch (IOException ex) {
-                }
-            }
-        }
-//        if(i==2) {
-//            startActivity(new Intent(photo.this, navbar.class));
-//        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
-        func();
-        Timer t = new Timer();
-        t.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if(photos.size()==3){
-                    startActivity(new Intent(photo.this, navbar.class));
-                }
-            }
-        }, 5000);
-
-
+        for(int i=0;i<3;i++) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, 0);
+        }
     }
 
     @Override
@@ -91,6 +43,5 @@ public class photo extends AppCompatActivity {
         if(photos.size()==3){
             startActivity(new Intent(photo.this, navbar.class));
         }
-        //imageview.setImageBitmap(bitmap);
     }
 }

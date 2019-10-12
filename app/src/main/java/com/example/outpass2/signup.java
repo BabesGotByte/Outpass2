@@ -20,7 +20,6 @@ public class signup extends AppCompatActivity {
                 startActivity(new Intent(signup.this, navbar.class));
             }
         });
-        //startActivity(new Intent(signup.this, navbar.class));
 
     }
 }
