@@ -25,7 +25,7 @@ import static android.support.constraint.Constraints.TAG;
 
 public class history extends Fragment {
 
-    private ArrayList<homee> hs=new ArrayList<>();
+    private ArrayList<OutpassInfo> hs=new ArrayList<>();
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     private CollectionReference historyOutpass ;
@@ -48,7 +48,7 @@ public class history extends Fragment {
                 if (task.isSuccessful()) {
                     int count = 0;
                     for (DocumentSnapshot document : task.getResult()) {
-                        homee h = document.toObject(homee.class);
+                        OutpassInfo h = document.toObject(OutpassInfo.class);
                         hs.add(h);
                     }
 

@@ -1,22 +1,23 @@
 package com.example.outpass2;
 
-public class homee {
+public class OutpassInfo {
     private String going,purpose,date,time,vehicle;
     private FirstTimeRegistration firstTimeRegistration;
+    private String status;
 
-    public homee() {
+    public OutpassInfo() {
     }
 
-    public homee(String going, String purpose, String date, String time, String vehicle, FirstTimeRegistration firstTimeRegistration) {
+
+    public OutpassInfo(String going, String purpose, String date, String time, String vehicle, FirstTimeRegistration firstTimeRegistration, String status) {
         this.going = going;
         this.purpose = purpose;
         this.date = date;
         this.time = time;
         this.vehicle = vehicle;
         this.firstTimeRegistration = firstTimeRegistration;
+        this.status = status;
     }
-
-
 
     public String getGoing() {
         return going;
@@ -66,9 +67,17 @@ public class homee {
         this.firstTimeRegistration = firstTimeRegistration;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "homee{" +
+        return "OutpassInfo{" +
                 "going='" + going + '\'' +
                 ", purpose='" + purpose + '\'' +
                 ", date='" + date + '\'' +

@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
     int currentHour;
     int currentMinute;
     String amPm;
-    private homee h;
+    private OutpassInfo h;
     private FirstTimeRegistration f;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
@@ -148,10 +148,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 pg.setVisibility(View.VISIBLE);
-                String going_t = going.getText().toString().trim();
+                final String going_t = going.getText().toString().trim();
                 String purpose_t = purpose.getText().toString().trim();
-                String date_t = date1.getText().toString().trim();
-                String timer_t = timer.getText().toString().trim();
+                final String date_t = date1.getText().toString().trim();
+                final String timer_t = timer.getText().toString().trim();
                 String vehicle_t = vehicle.getText().toString().trim();
 
                 if (TextUtils.isEmpty(going_t)) {
@@ -180,15 +180,21 @@ public class HomeFragment extends Fragment {
                     return;
                 }
 
-                h=new homee(going_t,purpose_t,dater,tim,vehicle_t,f);
+                String[] d = date_t.split("/");
+                String a="";
+                for(int i=0;i<d.length;i++){
+                    a=a+d[i]+"-";
+                }
 
-                db.collection(auth.getCurrentUser().getEmail()).document("History").collection("Outpasses").document().set(h)
+                h=new OutpassInfo(going_t,purpose_t,dater,tim,vehicle_t,f,"Pending");
+
+                db.collection(auth.getCurrentUser().getEmail()).document("History").collection("Outpasses").document(going_t+"."+a+"."+timer_t).set(h)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 //                                pg.setVisibility(View.GONE);
 //                                Toast.makeText(getContext(), "Your Outpass has been successfully registered", Toast.LENGTH_SHORT).show();
-                                db.collection(f.getHostel()).document().set(h)
+                                db.collection(f.getHostel()).document(auth.getCurrentUser().getEmail()+"."+going_t+"."+date_t+"."+timer_t).set(h)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {

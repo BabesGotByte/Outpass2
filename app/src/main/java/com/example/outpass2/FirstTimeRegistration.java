@@ -3,19 +3,17 @@ package com.example.outpass2;
 public class FirstTimeRegistration {
 
     private String name,contact,room,hostel,gname,gnumber;
-    private Boolean accepted;
 
     public FirstTimeRegistration() {
     }
 
-    public FirstTimeRegistration(String name, String contact, String room, String hostel, String gname, String gnumber, Boolean accepted) {
+    public FirstTimeRegistration(String name, String contact, String room, String hostel, String gname, String gnumber) {
         this.name = name;
         this.contact = contact;
         this.room = room;
         this.hostel = hostel;
         this.gname = gname;
         this.gnumber = gnumber;
-        this.accepted = accepted;
     }
 
 
@@ -67,13 +65,7 @@ public class FirstTimeRegistration {
         return gnumber;
     }
 
-    public Boolean getAccepted() {
-        return accepted;
-    }
 
-    public void setAccepted(Boolean accepted) {
-        this.accepted = accepted;
-    }
 
     @Override
     public String toString() {
@@ -84,7 +76,6 @@ public class FirstTimeRegistration {
                 ", hostel='" + hostel + '\'' +
                 ", gname='" + gname + '\'' +
                 ", gnumber='" + gnumber + '\'' +
-                ", accepted=" + accepted +
                 '}';
     }
 }

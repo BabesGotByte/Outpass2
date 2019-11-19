@@ -38,7 +38,7 @@ public class signup extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        DocumentReference docRef = db.collection(auth.getCurrentUser().getEmail()).document("Details");
+        /*DocumentReference docRef = db.collection(auth.getCurrentUser().getEmail()).document("Details");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -55,7 +55,7 @@ public class signup extends AppCompatActivity {
                     Log.d(TAG, "get failed with ", task.getException());
                 }
             }
-        });
+        });*/
         setContentView(R.layout.activity_signup);
 
         b1=findViewById(R.id.but);
@@ -110,7 +110,7 @@ public class signup extends AppCompatActivity {
                     return;
                 }
 
-                firstTimeRegistration = new FirstTimeRegistration(name_e,contact_e,room_e,hostel_e,gname_e,gnumber_e,null);
+                firstTimeRegistration = new FirstTimeRegistration(name_e,contact_e,room_e,hostel_e,gname_e,gnumber_e);
 
                 db.collection(auth.getCurrentUser().getEmail()).document("Details").set(firstTimeRegistration)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -4,13 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimary"
     tools:context=".signup">
 
+    <ImageView
+        android:layout_margin="10dp"
+        android:id="@+id/imageViewLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/keys" />
     <ScrollView
+        android:layout_below="@id/imageViewLogo"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -18,14 +29,9 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
-                android:src="@drawable/keys" />
 
         <TextView
+            android:layout_weight="2"
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,6 +46,7 @@
 
 
         <EditText
+            android:layout_weight="1"
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,6 +61,7 @@
 
 
         <EditText
+            android:layout_weight="1"
             android:id="@+id/contact"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -65,6 +73,7 @@
             android:textColorHint="@android:color/white" />
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -97,6 +106,7 @@
         </LinearLayout>
 
         <EditText
+            android:layout_weight="1"
             android:id="@+id/guardian_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,6 +118,7 @@
             android:textColorHint="@android:color/white" />
 
         <EditText
+            android:layout_weight="1"
             android:id="@+id/guardian_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,27 +129,26 @@
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
 
-        <!-- Login Button -->
-
-        <Button
-            android:id="@+id/but"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
-            android:text="Next"
-            android:layout_gravity="right|bottom"
-            android:textColor="@android:color/black" />
-
     </LinearLayout>
 </ScrollView>
 
+    <Button
+        android:layout_margin="6dp"
+        android:id="@+id/but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dip"
+        android:background="@color/colorAccent"
+        android:text="Next"
+        android:textColor="@android:color/black" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
