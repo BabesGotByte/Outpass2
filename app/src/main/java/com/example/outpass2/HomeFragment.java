@@ -187,6 +187,7 @@ public class HomeFragment extends Fragment {
                 }
 
                 h=new OutpassInfo(going_t,purpose_t,dater,tim,vehicle_t,f,"Pending");
+                TempClass.op=h;
 
                 db.collection(auth.getCurrentUser().getEmail()).document("History").collection("Outpasses").document(going_t+"."+a+"."+timer_t).set(h)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
