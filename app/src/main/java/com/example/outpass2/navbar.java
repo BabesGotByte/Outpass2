@@ -71,15 +71,8 @@ public class navbar extends AppCompatActivity
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document != null) {
-//                        Log.i("LOGGER","First "+document.getString("first"));
-//                        Log.i("LOGGER","Last "+document.getString("last"));
-//                        Log.i("LOGGER","Born "+document.getString("born"));
                         name=document.getString("name");
                         nameHeader.setText(name);
-
-                        Log.i("LOGGER","Born "+document.getString("room"));
-
-
                     } else {
                         Toast.makeText(navbar.this, "No such Document", Toast.LENGTH_SHORT).show();                    }
                 } else {
