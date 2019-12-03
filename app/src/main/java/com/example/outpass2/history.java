@@ -109,35 +109,9 @@ public class history extends Fragment {
                 }
 
 
-
-
                 if(hs==null)
                     Toast.makeText(getContext(), "empty view", Toast.LENGTH_SHORT).show();
 
-
-//                pg.setVisibility(View.GONE);
-
-//
-//                String x="";
-//                for(int i=0;i<hs.size();i++){
-//                    x=x+hs.get(i).toString()+"\n\n";
-//                }
-//                tv.setText(x);
-
-
-//                ArrayList<Date> date=new ArrayList<>();
-//                SimpleDateFormat format=new SimpleDateFormat("dd-MM-yyyy");
-//                Date date1= null;
-//                for(int i=0;i<hs.size();i++){
-//                    try {
-//                        date1 = format.parse(hs.get(i).getDate());
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
-//                    date.add(date1);
-//                }
-//
-//                Collections.sort(date);
                 Collections.sort(hs, new Sort());
 
                 recyclerView = view.findViewById(R.id.recycle);

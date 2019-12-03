@@ -1,6 +1,7 @@
 package com.example.outpass2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +17,7 @@ public class adapter extends RecyclerView.Adapter<myholder>{
 
     Context c;
     ArrayList<OutpassInfo> models;
-
+    String status;
     public  adapter(Context c, ArrayList<OutpassInfo> models){
         this.c=c;
         this.models=models;
@@ -28,11 +29,22 @@ public class adapter extends RecyclerView.Adapter<myholder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myholder myholder, int i) {
+    public void onBindViewHolder(@NonNull myholder myholder, final int i) {
         myholder.date1.setText(models.get(i).getDate());
         myholder.going.setText(models.get(i).getGoing());
         myholder.time.setText(models.get(i).getTime());
-        myholder.log.setImageResource(R.drawable.images);
+        myholder.log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TempClass.op= models.get((i));
+                status=models.get(i).getStatus();
+                Intent intent = new Intent(c, StatusActivity.class);
+                intent.putExtra("status", status);
+                c.startActivity(intent);
+
+
+            }
+        });
         myholder.vehicle.setText(models.get(i).getVehicle());
         myholder.purpose.setText(models.get(i).getPurpose());
 

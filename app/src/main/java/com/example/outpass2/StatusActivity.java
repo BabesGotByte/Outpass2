@@ -27,19 +27,53 @@ public class StatusActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pending);
+//        setContentView(R.layout.pending);
         auth=FirebaseAuth.getInstance();
         OutpassInfo op = TempClass.op;
-        gifImageView = (GifImageView) findViewById(R.id.gifimage);
 
-        try {
-            InputStream inputStream = getAssets().open("pending.gif");
-            byte[] bytes = IOUtils.toByteArray(inputStream);
-            gifImageView.setBytes(bytes);
-            gifImageView.startAnimation();
-        } catch (IOException ex) {
 
+        String status;
+        Intent intent=getIntent();
+        status= intent.getStringExtra("status");
+
+        if(status.equals("Pending")){
+            setContentView(R.layout.pending);
+            gifImageView = (GifImageView) findViewById(R.id.gifimage);
+            try {
+                InputStream inputStream = getAssets().open("pending.gif");
+                byte[] bytes = IOUtils.toByteArray(inputStream);
+                gifImageView.setBytes(bytes);
+                gifImageView.startAnimation();
+            } catch (IOException ex) {
+
+            }
         }
+        else if(status.equals("Accepted")){
+            setContentView(R.layout.accepted);
+            gifImageView = (GifImageView) findViewById(R.id.gifimage);
+            try {
+                InputStream inputStream = getAssets().open("check.gif");
+                byte[] bytes = IOUtils.toByteArray(inputStream);
+                gifImageView.setBytes(bytes);
+                gifImageView.startAnimation();
+            } catch (IOException ex) {
+
+            }
+        }
+        else if(status.equals("Rejected")){
+            setContentView(R.layout.rejected);
+            gifImageView = (GifImageView) findViewById(R.id.gifimage);
+            try {
+                InputStream inputStream = getAssets().open("tick4.gif");
+                byte[] bytes = IOUtils.toByteArray(inputStream);
+                gifImageView.setBytes(bytes);
+                gifImageView.startAnimation();
+            } catch (IOException ex) {
+
+            }
+        }
+
+
 
         roll=findViewById(R.id.rollno);
         roll.setText(auth.getCurrentUser().getEmail());
