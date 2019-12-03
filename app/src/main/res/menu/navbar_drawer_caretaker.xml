@@ -9,13 +9,13 @@
             android:icon="@drawable/home"
             android:title="Requests" />
         <item
-            android:id="@+id/nav_editprofile"
-            android:icon="@drawable/user"
-            android:title="Edit Profile" />
-        <item
             android:id="@+id/nav_history"
             android:icon="@drawable/history"
             android:title="History" />
+        <item
+            android:id="@+id/nav_defaulters"
+            android:icon="@drawable/history"
+            android:title="Defaulters" />
         <item
             android:id="@+id/nav_feedback"
             android:icon="@drawable/email"

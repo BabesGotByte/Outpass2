@@ -54,22 +54,22 @@ public class CaretakerActivity extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         Fragment fragment;
-        if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new HomeFragment()).commit();
+        if (id == R.id.nav_request) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new RequestFragment()).commit();
             drawer.closeDrawer(GravityCompat.START);
         }
 
-        else if (id == R.id.nav_editprofile) {
+//        else if (id == R.id.nav_history) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new history()).commit();
+//            drawer.closeDrawer(GravityCompat.START);        }
 
-        }
-
-        else if (id == R.id.nav_history) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new history()).commit();
-            drawer.closeDrawer(GravityCompat.START);        }
+        else if (id == R.id.nav_defaulters) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new DefaultersFragment()).commit();
+            drawer.closeDrawer(GravityCompat.START); }
 
         else if (id == R.id.nav_feedback) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new feed()).commit();
-            drawer.closeDrawer(GravityCompat.START);          }
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new feed()).commit();
+            drawer.closeDrawer(GravityCompat.START); }
 
         else if (id == R.id.nav_share) {
             Intent i = new Intent(Intent.ACTION_SEND);

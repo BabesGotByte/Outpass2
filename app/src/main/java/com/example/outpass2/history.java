@@ -21,9 +21,13 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.sql.SQLOutput;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Iterator;
 
 import static android.support.constraint.Constraints.TAG;
@@ -32,19 +36,41 @@ class Sort implements Comparator<OutpassInfo>
 {
     public int compare(OutpassInfo a, OutpassInfo b)
     {
-        int dateCompare = b.getDate().compareTo(a.getDate());
+        String temp=a.getDate();
+        String arr[]=temp.split("/");
+        String date=arr[0];
+        String month=arr[1];
+        String year=arr[2];
+
+        String temp2=b.getDate();
+        String arr2[]=temp.split("/");
+        String date2=arr[0];
+        String month2=arr[1];
+        String year2=arr[2];
+
+        int dayCompare = date2.compareTo(date);
+        int monthCompare = month2.compareTo(month);
+        int yearCompare = year2.compareTo(year);
         int timeCompare = b.getTime().compareTo(a.getTime());
 
-        if (dateCompare == 0) {
-            return ((timeCompare == 0) ? dateCompare : timeCompare);
-        } else {
-            return dateCompare;
-        }
+//        int dateCompare = b.getDate().compareTo(a.getDate());
+//        int timeCompare = b.getTime().compareTo(a.getTime());
 
+        if (yearCompare == 0) {
+            if(monthCompare == 0){
+                if(dayCompare == 0){
+                    if(timeCompare == 0){
+                        return yearCompare;
+                    }
+                    return timeCompare;
+                }
+                return dayCompare;
+            }
+            return monthCompare;
+        }
+        return yearCompare;
     }
 }
-
-
 
 public class history extends Fragment {
 
@@ -99,6 +125,19 @@ public class history extends Fragment {
 //                tv.setText(x);
 
 
+//                ArrayList<Date> date=new ArrayList<>();
+//                SimpleDateFormat format=new SimpleDateFormat("dd-MM-yyyy");
+//                Date date1= null;
+//                for(int i=0;i<hs.size();i++){
+//                    try {
+//                        date1 = format.parse(hs.get(i).getDate());
+//                    } catch (ParseException e) {
+//                        e.printStackTrace();
+//                    }
+//                    date.add(date1);
+//                }
+//
+//                Collections.sort(date);
                 Collections.sort(hs, new Sort());
 
                 recyclerView = view.findViewById(R.id.recycle);
