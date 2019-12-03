@@ -13,7 +13,7 @@
             android:icon="@drawable/history"
             android:title="History" />
         <item
-            android:id="@+id/nav_defaulters"
+            android:id="@+id/nav_defaulter"
             android:icon="@drawable/history"
             android:title="Defaulters" />
         <item

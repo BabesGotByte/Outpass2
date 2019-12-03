@@ -22,15 +22,16 @@ public class CaretakerActivity extends AppCompatActivity implements NavigationVi
     private DrawerLayout drawer;
     private FirebaseAuth auth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caretaker);
         auth = FirebaseAuth.getInstance();
 
-        String email,hostel;
-        Intent intent=getIntent();
-        hostel= intent.getStringExtra("hostel");
+
+//        Intent intent=getIntent();
+//        hostel= intent.getStringExtra("hostel");
 
         toolbar = findViewById(R.id.ctoolbar);
         setSupportActionBar(toolbar);
@@ -65,7 +66,7 @@ public class CaretakerActivity extends AppCompatActivity implements NavigationVi
 //            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new history()).commit();
 //            drawer.closeDrawer(GravityCompat.START);        }
 
-        else if (id == R.id.nav_defaulters) {
+        else if (id == R.id.nav_defaulter) {
             getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new DefaultersFragment()).commit();
             drawer.closeDrawer(GravityCompat.START); }
 

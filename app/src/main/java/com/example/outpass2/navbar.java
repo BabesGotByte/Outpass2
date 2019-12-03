@@ -2,10 +2,12 @@ package com.example.outpass2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -13,8 +15,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class navbar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,6 +32,11 @@ public class navbar extends AppCompatActivity
     private FirebaseAuth auth;
     private DrawerLayout drawer;
     private Toolbar toolbar;
+    private FirebaseFirestore db;
+    private View hview;
+    private TextView emailHeader;
+    private String name;
+    private TextView nameHeader;
 
 
     @Override
@@ -30,7 +45,10 @@ public class navbar extends AppCompatActivity
         setContentView(R.layout.activity_navbar);
 
 
+        db = FirebaseFirestore.getInstance();
+
         auth = FirebaseAuth.getInstance();
+
 
 
         toolbar = findViewById(R.id.vtoolbar);
@@ -40,6 +58,36 @@ public class navbar extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        hview = navigationView.getHeaderView(0);
+        emailHeader = hview.findViewById(R.id.emailHeader);
+        emailHeader.setText(auth.getCurrentUser().getEmail());
+        nameHeader = hview.findViewById(R.id.nameHeader);
+
+        DocumentReference docRef = db.collection(auth.getCurrentUser().getEmail()).document("Details");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document != null) {
+//                        Log.i("LOGGER","First "+document.getString("first"));
+//                        Log.i("LOGGER","Last "+document.getString("last"));
+//                        Log.i("LOGGER","Born "+document.getString("born"));
+                        name=document.getString("name");
+                        nameHeader.setText(name);
+
+                        Log.i("LOGGER","Born "+document.getString("room"));
+
+
+                    } else {
+                        Toast.makeText(navbar.this, "No such Document", Toast.LENGTH_SHORT).show();                    }
+                } else {
+                    Log.d("LOGGER", "get failed with ", task.getException());
+                }
+            }
+        });
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
