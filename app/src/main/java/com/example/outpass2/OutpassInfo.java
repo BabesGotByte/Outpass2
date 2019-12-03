@@ -4,12 +4,12 @@ public class OutpassInfo {
     private String going,purpose,date,time,vehicle;
     private FirstTimeRegistration firstTimeRegistration;
     private String status;
+    private String email;
 
     public OutpassInfo() {
     }
 
-
-    public OutpassInfo(String going, String purpose, String date, String time, String vehicle, FirstTimeRegistration firstTimeRegistration, String status) {
+    public OutpassInfo(String going, String purpose, String date, String time, String vehicle, FirstTimeRegistration firstTimeRegistration, String status, String email) {
         this.going = going;
         this.purpose = purpose;
         this.date = date;
@@ -17,7 +17,9 @@ public class OutpassInfo {
         this.vehicle = vehicle;
         this.firstTimeRegistration = firstTimeRegistration;
         this.status = status;
+        this.email = email;
     }
+
 
     public String getGoing() {
         return going;
@@ -75,6 +77,14 @@ public class OutpassInfo {
         this.status = status;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "OutpassInfo{" +
@@ -83,7 +93,9 @@ public class OutpassInfo {
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", vehicle='" + vehicle + '\'' +
-                ", firstTimeRegistration=" + firstTimeRegistration.toString() +
+                ", firstTimeRegistration=" + firstTimeRegistration +
+                ", status='" + status + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

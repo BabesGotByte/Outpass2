@@ -186,16 +186,17 @@ public class HomeFragment extends Fragment {
                     a=a+d[i]+"-";
                 }
 
-                h=new OutpassInfo(going_t,purpose_t,dater,tim,vehicle_t,f,"Pending");
+                h=new OutpassInfo(going_t,purpose_t,dater,tim,vehicle_t,f,"Pending",auth.getCurrentUser().getEmail());
                 TempClass.op=h;
 
+                final String finalA = a;
                 db.collection(auth.getCurrentUser().getEmail()).document("History").collection("Outpasses").document(going_t+"."+a+"."+timer_t).set(h)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 //                                pg.setVisibility(View.GONE);
 //                                Toast.makeText(getContext(), "Your Outpass has been successfully registered", Toast.LENGTH_SHORT).show();
-                                db.collection(f.getHostel()).document(auth.getCurrentUser().getEmail()+"."+going_t+"."+date_t+"."+timer_t).set(h)
+                                db.collection(f.getHostel()).document(auth.getCurrentUser().getEmail()+"."+going_t+"."+ finalA +"."+timer_t).set(h)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
