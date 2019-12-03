@@ -1,117 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/roll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Roll num"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:padding="10dp"
-            />
         <LinearLayout
+            android:id="@+id/first"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/roll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rollnum"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/first">
+
             <TextView
                 android:id="@+id/going"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Going to"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:padding="10dp"
+                android:text="Going"
+                android:textAlignment="center"
                 android:layout_weight="1"
-                />
+                android:textColor="#000000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:padding="10dp"/>
+
             <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Date"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:padding="10dp"
+                android:textAlignment="center"
                 android:layout_weight="1"
-                />
+                android:textColor="#000000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:padding="10dp"/>
             <TextView
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Time"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:padding="10dp"
+                android:textAlignment="center"
                 android:layout_weight="1"
-                />
+                android:textColor="#000000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:padding="10dp"/>
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/purpose"
+        <LinearLayout
+            android:id="@+id/layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Purpose"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:padding="10dp"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:id="@+id/vehicle"
+            android:orientation="horizontal"
+            android:layout_below="@+id/layout1">
+
+            <TextView
+                android:id="@+id/purpose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Purpose"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000000" />
+            <TextView
+                android:id="@+id/vehicle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vehicle"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vehicle"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            android:padding="10dp"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:layout_below="@+id/layout2">
+
+            <Button
+                android:id="@+id/accept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ACCEPT"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:textColor="#000000"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/reject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="REJECT"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:textColor="#000000"
+                android:layout_margin="5dp"/>
 
 
-    <LinearLayout
-        android:id="@+id/layout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/accept"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ACCEPT"
-            android:background="@color/colorAccent"
-            android:textColor="#000000"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
+    </RelativeLayout>
 
-        <Button
-            android:id="@+id/reject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REJECT"
-            android:background="@color/colorAccent"
-            android:textColor="#000000"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
-
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
+</android.support.v7.widget.CardView>

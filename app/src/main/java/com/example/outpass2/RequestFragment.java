@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,9 @@ import java.util.Collections;
 
 import static android.support.constraint.Constraints.TAG;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class RequestFragment extends Fragment {
 
@@ -36,10 +40,16 @@ public class RequestFragment extends Fragment {
     private CollectionReference RequestOutpass;
     private ArrayList<OutpassInfo> reqList=new ArrayList<>();
 
+//    private ArrayList<model_outside> temp=new ArrayList<>();
+
+    RecyclerView recyclerView;
+    adapter_request adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.fragment_request, container, false);
         Intent intent=getActivity().getIntent();
         hostel= intent.getStringExtra("hostel");
@@ -69,19 +79,18 @@ public class RequestFragment extends Fragment {
                 if(reqList==null)
                     Toast.makeText(getContext(), "empty view", Toast.LENGTH_SHORT).show();
 
+                recyclerView = view.findViewById(R.id.recycle_request);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                adapter = new adapter_request(getContext(),reqList);
+                recyclerView.setAdapter(adapter);
 
-
-
-
-//                recyclerView = view.findViewById(R.id.recycle);
-//                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//                adapter = new adapter(getContext(),hs);
-//                recyclerView.setAdapter(adapter);
 
             }
         });
 
         return view;
+
+
     }
 
 }

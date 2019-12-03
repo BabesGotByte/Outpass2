@@ -62,9 +62,9 @@ public class CaretakerActivity extends AppCompatActivity implements NavigationVi
             drawer.closeDrawer(GravityCompat.START);
         }
 
-//        else if (id == R.id.nav_history) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new history()).commit();
-//            drawer.closeDrawer(GravityCompat.START);        }
+        else if (id == R.id.nav_history) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new OutsideFragment()).commit();
+            drawer.closeDrawer(GravityCompat.START);        }
 
         else if (id == R.id.nav_defaulter) {
             getSupportFragmentManager().beginTransaction().replace(R.id.NavCaretakerFragmentContainer, new DefaultersFragment()).commit();
