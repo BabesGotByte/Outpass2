@@ -52,8 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                             } else {
                                 pgCheckInfo.setVisibility(View.GONE);
-                                finish();
+
                                 startActivity(new Intent(LoginActivity.this, signup.class));
+                                finish();
 
                             }
                         } else {

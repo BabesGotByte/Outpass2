@@ -33,30 +33,33 @@ public class signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_signup);
 
         auth=FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        /*DocumentReference docRef = db.collection(auth.getCurrentUser().getEmail()).document("Details");
+        pg = findViewById(R.id.progressBar);
+        DocumentReference docRef = db.collection(auth.getCurrentUser().getEmail()).document("Details");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        pg.setVisibility(View.GONE);
                         finish();
                         startActivity(new Intent(signup.this, navbar.class));
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
+                        pg.setVisibility(View.GONE);
                         Log.d(TAG, "No such document");
                     }
                 } else {
+                    pg.setVisibility(View.GONE);
                     Log.d(TAG, "get failed with ", task.getException());
                 }
             }
-        });*/
-        setContentView(R.layout.activity_signup);
+        });
 
         b1=findViewById(R.id.but);
         name_t=findViewById(R.id.name);
@@ -65,7 +68,7 @@ public class signup extends AppCompatActivity {
         hostel_t=findViewById(R.id.hostel);
         gname_t=findViewById(R.id.guardian_name);
         gnumber_t=findViewById(R.id.guardian_contact);
-        pg = findViewById(R.id.progressBar);
+
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
