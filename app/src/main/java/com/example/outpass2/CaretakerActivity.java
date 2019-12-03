@@ -28,7 +28,9 @@ public class CaretakerActivity extends AppCompatActivity implements NavigationVi
         setContentView(R.layout.activity_caretaker);
         auth = FirebaseAuth.getInstance();
 
-
+        String email,hostel;
+        Intent intent=getIntent();
+        hostel= intent.getStringExtra("hostel");
 
         toolbar = findViewById(R.id.ctoolbar);
         setSupportActionBar(toolbar);
