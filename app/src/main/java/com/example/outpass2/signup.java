@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +31,7 @@ public class signup extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     private ProgressBar pg;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +68,14 @@ public class signup extends AppCompatActivity {
         name_t=findViewById(R.id.name);
         contact_t=findViewById(R.id.contact);
         room_t=findViewById(R.id.room);
-        hostel_t=findViewById(R.id.hostel);
+        //hostel_t=findViewById(R.id.hostel);
+        spinner=findViewById(R.id.spinner);
         gname_t=findViewById(R.id.guardian_name);
         gnumber_t=findViewById(R.id.guardian_contact);
 
+        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(signup.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.hostel));
+        myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(myadapter);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +84,8 @@ public class signup extends AppCompatActivity {
                 String name_e = name_t.getText().toString().trim();
                 String contact_e = contact_t.getText().toString();
                 String room_e = room_t.getText().toString().trim();
-                String hostel_e = hostel_t.getText().toString();
+                //String hostel_e = hostel_t.getText().toString();
+                String hostel_e=spinner.getSelectedItem().toString();
                 String gname_e = gname_t.getText().toString().trim();
                 String gnumber_e = gnumber_t.getText().toString();
 
@@ -93,6 +101,11 @@ public class signup extends AppCompatActivity {
                     contact_t.setError("This field should not be empty");
                     return;
                 }
+                if (TextUtils.isEmpty(room_e)) {
+                    room_t.setError("This field should not be empty");
+                    return;
+                }
+
                 if (TextUtils.isEmpty(room_e)) {
                     room_t.setError("This field should not be empty");
                     return;

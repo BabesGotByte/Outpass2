@@ -36,7 +36,6 @@ public class navbar extends AppCompatActivity
         toolbar = findViewById(R.id.vtoolbar);
         setSupportActionBar(toolbar);
 
-
         drawer = findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -88,10 +87,6 @@ public class navbar extends AppCompatActivity
         if (id == R.id.nav_home) {
            getSupportFragmentManager().beginTransaction().replace(R.id.NavFragmentContainer, new HomeFragment()).commit();
                 drawer.closeDrawer(GravityCompat.START);
-        }
-
-        else if (id == R.id.nav_editprofile) {
-
         }
 
         else if (id == R.id.nav_history) {

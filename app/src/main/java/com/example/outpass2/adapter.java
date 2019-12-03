@@ -32,7 +32,7 @@ public class adapter extends RecyclerView.Adapter<myholder>{
         myholder.date1.setText(models.get(i).getDate());
         myholder.going.setText(models.get(i).getGoing());
         myholder.time.setText(models.get(i).getTime());
-        myholder.log.setImageResource(R.drawable.ic_menu_gallery);
+        myholder.log.setImageResource(R.drawable.images);
         myholder.vehicle.setText(models.get(i).getVehicle());
         myholder.purpose.setText(models.get(i).getPurpose());
 

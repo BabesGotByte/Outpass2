@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             catch (NumberFormatException e){
 //                flag =1;
                 pgCheckInfo.setVisibility(View.GONE);
-                startActivity(new Intent(LoginActivity.this, CaretakerActivity.class));
+                startActivity(new Intent(LoginActivity.this, option_hostel.class));
                 finish();
             }
 

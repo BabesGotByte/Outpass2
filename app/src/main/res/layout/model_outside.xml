@@ -10,21 +10,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <ImageView
-            android:id="@+id/log"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/p"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Name"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000000" />
+            <TextView
+                android:id="@+id/roll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rollnum"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:padding="10dp"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/log">
+            android:layout_below="@+id/first">
 
             <TextView
                 android:id="@+id/going"
@@ -57,7 +78,7 @@
                 android:textColor="#000000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:padding="10dp"/>
-            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
