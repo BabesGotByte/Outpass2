@@ -38,7 +38,6 @@ public class DefaultersFragment extends Fragment {
             adapter = new adapter_outside(getContext(),temp);
             recyclerView.setAdapter(adapter);
 
-
             return view;
         }
     }
