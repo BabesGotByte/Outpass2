@@ -30,6 +30,17 @@ public class adapter extends RecyclerView.Adapter<myholder>{
 
     @Override
     public void onBindViewHolder(@NonNull myholder myholder, final int i) {
+
+        if(models.get(i).getStatus().equals("Accepted")){
+            myholder.log.setImageResource(R.drawable.tick14);
+        }
+        else if(models.get(i).getStatus().equals("Rejected")){
+            myholder.log.setImageResource(R.drawable.x13);
+        }
+        else{
+            myholder.log.setImageResource(R.drawable.pending_still_image);
+        }
+
         myholder.date1.setText(models.get(i).getDate());
         myholder.going.setText(models.get(i).getGoing());
         myholder.time.setText(models.get(i).getTime());

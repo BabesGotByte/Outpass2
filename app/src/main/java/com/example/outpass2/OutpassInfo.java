@@ -1,15 +1,18 @@
 package com.example.outpass2;
 
 public class OutpassInfo {
-    private String going,purpose,date,time,vehicle;
+    private String going, purpose, date, time, vehicle;
     private FirstTimeRegistration firstTimeRegistration;
     private String status;
     private String email;
+    private String approvedBy;
+    private String returnTime;
+    private String reason;
 
     public OutpassInfo() {
     }
 
-    public OutpassInfo(String going, String purpose, String date, String time, String vehicle, FirstTimeRegistration firstTimeRegistration, String status, String email) {
+    public OutpassInfo(String going, String purpose, String date, String time, String vehicle, FirstTimeRegistration firstTimeRegistration, String status, String email, String approvedBy, String returnTime, String reason) {
         this.going = going;
         this.purpose = purpose;
         this.date = date;
@@ -18,6 +21,9 @@ public class OutpassInfo {
         this.firstTimeRegistration = firstTimeRegistration;
         this.status = status;
         this.email = email;
+        this.approvedBy = approvedBy;
+        this.returnTime = returnTime;
+        this.reason = reason;
     }
 
 
@@ -85,6 +91,30 @@ public class OutpassInfo {
         this.email = email;
     }
 
+    public String getApprovedBy() {
+        return approvedBy;
+    }
+
+    public void setApprovedBy(String approvedBy) {
+        this.approvedBy = approvedBy;
+    }
+
+    public String getReturnTime() {
+        return returnTime;
+    }
+
+    public void setReturnTime(String returnTime) {
+        this.returnTime = returnTime;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
     @Override
     public String toString() {
         return "OutpassInfo{" +
@@ -96,6 +126,8 @@ public class OutpassInfo {
                 ", firstTimeRegistration=" + firstTimeRegistration +
                 ", status='" + status + '\'' +
                 ", email='" + email + '\'' +
+                ", approvedBy='" + approvedBy + '\'' +
+                ", returnTime='" + returnTime + '\'' +
                 '}';
     }
 }

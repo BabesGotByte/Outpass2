@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical">
 
     <LinearLayout
@@ -78,7 +79,7 @@
             tools:layout_editor_absoluteX="0dp" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/name_approved"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -131,17 +132,45 @@
             tools:layout_editor_absoluteX="77dp"
             tools:layout_editor_absoluteY="327dp" />
 
-        <TextView
-            android:id="@+id/date"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Date"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/in_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Date and time"
+            android:text="Outpass hasn't expired"
             android:textColor="#000000"
             android:textSize="20dp"
             tools:layout_editor_absoluteX="77dp"
             tools:layout_editor_absoluteY="327dp" />
+
 
     </LinearLayout>
 

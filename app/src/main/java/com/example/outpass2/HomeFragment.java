@@ -186,7 +186,7 @@ public class HomeFragment extends Fragment {
                     a=a+d[i]+"-";
                 }
 
-                h=new OutpassInfo(going_t,purpose_t,dater,tim,vehicle_t,f,"Pending",auth.getCurrentUser().getEmail());
+                h=new OutpassInfo(going_t,purpose_t,dater,tim,vehicle_t,f,"Pending",auth.getCurrentUser().getEmail(),"","","");
                 TempClass.op=h;
 
                 final String finalA = a;

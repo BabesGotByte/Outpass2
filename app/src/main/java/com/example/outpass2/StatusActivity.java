@@ -34,8 +34,8 @@ public class StatusActivity extends AppCompatActivity {
 
         String status;
         Intent intent=getIntent();
-        status= intent.getStringExtra("status");
-
+//        status= intent.getStringExtra("status");
+            status=op.getStatus();
         if(status.equals("Pending")){
             setContentView(R.layout.pending);
             gifImageView = (GifImageView) findViewById(R.id.gifimage);
@@ -50,6 +50,14 @@ public class StatusActivity extends AppCompatActivity {
         }
         else if(status.equals("Accepted")){
             setContentView(R.layout.accepted);
+            TextView approvedBy = findViewById(R.id.name_approved);
+            if(!op.getApprovedBy().equals("")){
+                approvedBy.setText(op.getApprovedBy());
+            }
+            TextView returnTime = findViewById(R.id.in_time);
+            if(!op.getReturnTime().equals("")){
+                returnTime.setText(op.getReturnTime());
+            }
             gifImageView = (GifImageView) findViewById(R.id.gifimage);
             try {
                 InputStream inputStream = getAssets().open("check.gif");
@@ -62,6 +70,14 @@ public class StatusActivity extends AppCompatActivity {
         }
         else if(status.equals("Rejected")){
             setContentView(R.layout.rejected);
+            TextView approvedBy = findViewById(R.id.name_approved);
+            if(!op.getApprovedBy().equals("")){
+                approvedBy.setText(op.getApprovedBy());
+            }
+            TextView returnTime = findViewById(R.id.reason);
+            if(!op.getReason().equals("")){
+                returnTime.setText(op.getReason());
+            }
             gifImageView = (GifImageView) findViewById(R.id.gifimage);
             try {
                 InputStream inputStream = getAssets().open("tick4.gif");

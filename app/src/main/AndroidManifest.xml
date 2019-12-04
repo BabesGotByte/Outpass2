@@ -11,7 +11,9 @@
         android:roundIcon="@drawable/keys"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".option_hostel"></activity>
+        <activity android:name=".PopupActivity"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name=".option_hostel" />
         <activity android:name=".StatusActivity" />
         <activity android:name=".CaretakerActivity" />
         <activity android:name=".LoginActivity" />

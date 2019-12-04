@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -65,7 +64,7 @@ public class signup extends AppCompatActivity {
         });
 
         b1=findViewById(R.id.but);
-        name_t=findViewById(R.id.name);
+        name_t=findViewById(R.id.name_approved);
         contact_t=findViewById(R.id.contact);
         room_t=findViewById(R.id.room);
         //hostel_t=findViewById(R.id.hostel);

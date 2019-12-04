@@ -14,9 +14,10 @@
             android:id="@+id/log"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/images"
+            android:src="@drawable/pending_still_image"
             android:layout_gravity="center"
             android:layout_margin="10dp"
+            android:background="#fff"
             android:layout_centerHorizontal="true"/>
 
         <LinearLayout
