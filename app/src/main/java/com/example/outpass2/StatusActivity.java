@@ -42,7 +42,7 @@ public class StatusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.pending);
         auth = FirebaseAuth.getInstance();
-        OutpassInfo op = TempClass.op;
+        final OutpassInfo op = TempClass.op;
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("outpass2-ae30f");
 
@@ -87,9 +87,9 @@ public class StatusActivity extends AppCompatActivity {
             if (!op.getApprovedBy().equals("")) {
                 approvedBy.setText(op.getApprovedBy());
             }
-            TextView returnTime = findViewById(R.id.reason);
+//            TextView returnTime = findViewById(R.id.reason);
             if (!op.getReason().equals("")) {
-                returnTime.setText(op.getReason());
+//                returnTime.setText(op.getReason());
             }
             gifImageView = (GifImageView) findViewById(R.id.gifimage);
             try {
@@ -121,37 +121,41 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                pg.setVisibility(View.VISIBLE);
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(op.getStatus().equals("Accepted")) {
+                    pg.setVisibility(View.VISIBLE);
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 //                cc.clear();
-                        for (DataSnapshot d : dataSnapshot.getChildren()) {
-                            IncomingStudents c = d.getValue(IncomingStudents.class);
-                            cc.add(c);
+                            for (DataSnapshot d : dataSnapshot.getChildren()) {
+                                IncomingStudents c = d.getValue(IncomingStudents.class);
+                                cc.add(c);
+                            }
+
+                            if (cc.size() != 0) {
+
+                                Toast.makeText(StatusActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                            }
+                            pg.setVisibility(View.GONE);
+
+                            // compare karo cc se rollno. if same fir mera kaam
+
+
                         }
 
-                        if(cc.size()!=0){
-
-                            Toast.makeText(StatusActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(StatusActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                        pg.setVisibility(View.GONE);
+                    });
 
-                        // compare karo cc se rollno. if same fir mera kaam
-
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(StatusActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
+                }
+                else{
+                    finish();
+                }
             }
+
         });
 
     }

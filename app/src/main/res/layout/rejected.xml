@@ -167,15 +167,6 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
-        <Button
-            android:id="@+id/redirect"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:background="#ffffff"
-            android:shadowColor="#000000"
-            android:text="Redirect"
-            android:layout_weight="1"
-            android:textColor="#000000" />
 
         <Button
             android:id="@+id/home"
