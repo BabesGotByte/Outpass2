@@ -141,17 +141,6 @@
             tools:layout_editor_absoluteX="77dp"
             tools:layout_editor_absoluteY="327dp" />
 
-        <TextView
-        android:id="@+id/reason"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Reason"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="327dp" />
 
     </LinearLayout>
 
