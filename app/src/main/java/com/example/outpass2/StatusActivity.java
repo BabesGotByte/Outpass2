@@ -80,7 +80,7 @@ public class StatusActivity extends AppCompatActivity {
             }
             gifImageView = (GifImageView) findViewById(R.id.gifimage);
             try {
-                InputStream inputStream = getAssets().open("tick4.gif");
+                InputStream inputStream = getAssets().open("cross.gif");
                 byte[] bytes = IOUtils.toByteArray(inputStream);
                 gifImageView.setBytes(bytes);
                 gifImageView.startAnimation();
