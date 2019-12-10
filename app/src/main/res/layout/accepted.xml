@@ -182,7 +182,7 @@
         android:layout_marginTop="30dp"
         android:background="@color/colorAccent"
         android:shadowColor="@color/colorAccent"
-        android:text="Home"
+        android:text="Verify"
         android:textColor="#000000" />
     <ProgressBar
         android:layout_width="wrap_content"
