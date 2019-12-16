@@ -18,6 +18,8 @@ Currently, the major emphasis was Outpass (Girls at IIIT Allahabad need a permis
 
 ## Future Scope
 
+This project is intended to be an app which acts as the Official App of the college and reduces all the paperwork a student has to do, making rounds around authorities and getting signatures and permission for trivial stuff. We plan to add options for Leave Application, Mess Rebate and other Official forms and applications.
+
 We further plan to extend the Face Recognition Model so that it can take care of the institute entry exit records and can be of great use in many ways such as tracking someone, use in times of emergencies and so on. 
 
 ## Tech Stack
