@@ -34,13 +34,17 @@ This project is intended to be an app which acts as the Official App of the coll
 We further plan to extend the Face Recognition Model so that it can take care of the institute entry exit records and can be of great use in many ways such as tracking someone, use in times of emergencies and so on. 
 
 
+## The App:
+![Image2 of Outpass App](screenshots_of_app/ss2)
+
+![Image2 of Outpass App](screenshots_of_app/ss3)
+
+![Image2 of Outpass App](screenshots_of_app/ss4)
+
+
 ## More
 More details on the project can be found in the documentation present inside the repo. Check out the project report and the PPT for more.
 
+
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
-## The Project:
-
-![Image2 of Outpass App](https://drive.google.com/file/d/1iJ-XNndoFzw3Q5hsyKl0vLVBuIJEH6La/view)
-
-![Image of Outpass App](https://drive.google.com/file/d/1CejUZWRy87NaR_ysGBtw9tmCLaOov29u/view)
