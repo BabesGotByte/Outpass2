@@ -41,5 +41,8 @@ More details on the project can be found in the documentation present inside the
 
 ## The Project:
 
-![Image of Outpass App](https://drive.google.com/open?id=1CejUZWRy87NaR_ysGBtw9tmCLaOov29u)
-![Image2 of Outpass App](https://drive.google.com/open?id=1iJ-XNndoFzw3Q5hsyKl0vLVBuIJEH6La)
+![Image2 of Outpass App]
+(https://drive.google.com/file/d/1iJ-XNndoFzw3Q5hsyKl0vLVBuIJEH6La/view)
+
+![Image of Outpass App]
+(https://drive.google.com/file/d/1CejUZWRy87NaR_ysGBtw9tmCLaOov29u/view)
