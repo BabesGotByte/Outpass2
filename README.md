@@ -35,13 +35,13 @@ We further plan to extend the Face Recognition Model so that it can take care of
 
 
 ## The App:
-![Image1 of Outpass App](screenshots_of_app/ss1.jpg | width=400 | height=500)
+![Image1 of Outpass App](screenshots_of_app/ss1.jpg =600x400)
 
-![Image2 of Outpass App](screenshots_of_app/ss2.jpg | width=400 | height=500)
+![Image2 of Outpass App](screenshots_of_app/ss2.jpg =600x400)
 
-![Image3 of Outpass App](screenshots_of_app/ss3.jpg | width=400 | height=500)
+![Image3 of Outpass App](screenshots_of_app/ss3.jpg =600x400)
 
-![Image4 of Outpass App](screenshots_of_app/ss4.jpg | width=400 | height=500)
+![Image4 of Outpass App](screenshots_of_app/ss4.jpg =600x400)
 
 
 ## More
