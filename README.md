@@ -38,3 +38,8 @@ We further plan to extend the Face Recognition Model so that it can take care of
 More details on the project can be found in the documentation present inside the repo. Check out the project report and the PPT for more.
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
+
+## The Project:
+
+![Image of Outpass App](https://drive.google.com/drive/u/0/folders/1rhthXERM1Jc_fdZh60jPprm5NqCB3Ium)
+![Image of Outpass App2](https://drive.google.com/drive/u/0/folders/1rhthXERM1Jc_fdZh60jPprm5NqCB3Ium)
