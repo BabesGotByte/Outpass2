@@ -12,6 +12,17 @@ A facial recognition system (using HoG, Histogram of Oriented Gradients,a deep L
 
 The app accepts Outpass, Leave etc application requests, and if approved by the authority using the app, notifies the Student about it and authentificates the entries by keeping a tab on the entry/exit. This much is implemented currently
 
+
+## Tech Stack
+
+Android App Dev, Deep Learning (Histogram of Oriented Gradients, Siamese Network), Machine Learning, Firebase, Python 3
+
+![](https://img.shields.io/badge/APP-DEVELOPEMENT-orange.svg)
+![](https://img.shields.io/badge/FACE-RECOGNITION-blue.svg)
+![](https://img.shields.io/badge/FIREBASE-DATABASE-green.svg)
+
+
+
 ## Current Progress
 
 Currently, the major emphasis was Outpass (Girls at IIIT Allahabad need a permission called Outpass to leave the college premises, even for trivial things like shopping, buying fruits etc), which takes rounds of paperwork, recording their in time and outtime and storing it and authentificating the student's outpass before leaving. All this is done manually and by handwritten records. We aim to automate it all using our app and Facial Recognition System (to authenticate student, record intime and outtime and identify regular defaulters and take action) (CCTV footage is taken for identifying face)
@@ -22,13 +33,6 @@ This project is intended to be an app which acts as the Official App of the coll
 
 We further plan to extend the Face Recognition Model so that it can take care of the institute entry exit records and can be of great use in many ways such as tracking someone, use in times of emergencies and so on. 
 
-## Tech Stack
-
-Android App Dev, Deep Learning (Histogram of Oriented Gradients, Siamese Network), Machine Learning, Firebase, Python 3
-
-![](https://img.shields.io/badge/APP-DEVELOPEMENT-orange.svg)
-![](https://img.shields.io/badge/FACE-RECOGNITION-blue.svg)
-![](https://img.shields.io/badge/FIREBASE-DATABASE-green.svg)
 
 ## More
 More details on the project can be found in the documentation present inside the repo. Check out the project report and the PPT for more.
