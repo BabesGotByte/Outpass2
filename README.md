@@ -15,7 +15,7 @@ The app accepts Outpass, Leave etc application requests, and if approved by the 
 
 ## Tech Stack
 
-Android App Dev, Deep Learning (Histogram of Oriented Gradients, Siamese Network), Machine Learning, Firebase, Python 3
+Android App Dev(3.3.0.0 version of Android studio), Deep Learning (Histogram of Oriented Gradients, Siamese Network), Machine Learning, Firebase, Python 3
 
 ![](https://img.shields.io/badge/APP-DEVELOPEMENT-orange.svg)
 ![](https://img.shields.io/badge/FACE-RECOGNITION-blue.svg)
