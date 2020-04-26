@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
 
         if (auth.getCurrentUser() != null) {
             pgCheckInfo.setVisibility(View.VISIBLE);
-//            int flag=0;
             String x=auth.getCurrentUser().getEmail();
             x=x.substring(3,10);
             try{

@@ -21,7 +21,9 @@ public class option_hostel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option_hostel);
         auth=FirebaseAuth.getInstance();
-        String email = auth.getCurrentUser().getEmail();
+        String email;
+        if(auth.getCurrentUser()!=null)
+            email = auth.getCurrentUser().getEmail();
 
         spinner = findViewById(R.id.spinner2);
         b1=findViewById(R.id.button);
