@@ -81,7 +81,5 @@ public class LoginActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.FragmentContainer,new LoginFragment());
         fragmentTransaction.commit();
 
-
-
     }
 }

@@ -109,7 +109,7 @@ public class RegisterFragment extends Fragment {
                                     }
                                     catch (NumberFormatException e){
 //                flag =1;
-                                        Intent intent = new Intent(getActivity(), CaretakerActivity.class);
+                                        Intent intent = new Intent(getActivity(), option_hostel.class);
                                         startActivity(intent);
                                         getActivity().finish();
                                     }
