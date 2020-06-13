@@ -96,7 +96,7 @@ public class HomeFragment extends Fragment {
                 Calendar calendar = Calendar.getInstance();
                 int year = calendar.get(calendar.YEAR);
                 int month = calendar.get(calendar.MONTH);
-                int day = calendar.get(calendar.DAY_OF_WEEK);
+                int day = calendar.get(calendar.DAY_OF_MONTH);
                 DatePickerDialog dialog = new DatePickerDialog(
                         getActivity(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,

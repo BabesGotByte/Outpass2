@@ -13,12 +13,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.felipecsl.gifimageview.library.GifImageView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.apache.commons.io.IOUtils;
 
@@ -28,21 +34,28 @@ import java.util.ArrayList;
 
 public class StatusActivity extends AppCompatActivity {
 
+    IncomingStudents obj;
     private GifImageView gifImageView;
     FirebaseAuth auth;
     private ArrayList<IncomingStudents> cc = new ArrayList<>();
     private DatabaseReference myRef;
     String s;
     Button b;
+     String k,x;
+    int a;
     TextView roll, purpose, destination, vehicle, date1, time1;
     private FirebaseDatabase database;
     ProgressBar pg;
+    OutpassInfo op;
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.pending);
         auth = FirebaseAuth.getInstance();
-        final OutpassInfo op = TempClass.op;
+
+        op = TempClass.op;
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("outpass2-ae30f");
 
@@ -121,39 +134,41 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(op.getStatus().equals("Accepted")) {
-                    pg.setVisibility(View.VISIBLE);
-                    myRef.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (int i = 0; i < cc.size(); i++) {
+                    if (op.getEmail().equals(cc.get(i).getRoll())) {
 
-//                cc.clear();
-                            for (DataSnapshot d : dataSnapshot.getChildren()) {
-                                IncomingStudents c = d.getValue(IncomingStudents.class);
-                                cc.add(c);
+                        obj = cc.get(i);
+
+                        db
+                                .collection(op.getEmail())
+                                .document("History")
+                                .collection("Outpasses")
+                                .document(k)
+                                .update("returnTime", cc.get(i).getDate() + "  " + cc.get(i).getTime()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+
+                                    Toast.makeText(StatusActivity.this, "Verified", Toast.LENGTH_SHORT).show();
+
+
+                                } else {
+                                    Toast.makeText(StatusActivity.this, "Not Verified", Toast.LENGTH_SHORT).show();
+                                }
                             }
+                        });
 
-                            if (cc.size() != 0) {
-
-                                Toast.makeText(StatusActivity.this, "Done", Toast.LENGTH_SHORT).show();
-                            }
-                            pg.setVisibility(View.GONE);
-
-                            // compare karo cc se rollno. if same fir mera kaam
-
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            Toast.makeText(StatusActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+                        a = 1;
+                    }
                 }
-                else{
-                    finish();
-                }
+
+
+
+
+
+//                } else {
+//                    finish();
+//                }
             }
 
         });
@@ -164,7 +179,47 @@ public class StatusActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        if (op.getStatus().equals("Accepted")) {
+            pg.setVisibility(View.VISIBLE);
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+//                cc.clear();
+                    for (DataSnapshot d : dataSnapshot.getChildren()) {
+                        IncomingStudents c = d.getValue(IncomingStudents.class);
+                        cc.add(c);
+                    }
+
+                    if (cc.size() != 0) {
+
+                        Toast.makeText(StatusActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                    // compare karo cc se rollno. if same fir mera kaam
+
+
+
+                    String[] d = op.getDate().split("/");
+                    String a = "";
+                    for (int ii = 0; ii < d.length; ii++) {
+                        a = a + d[ii] + "-";
+                    }
+
+                    k = op.getGoing() + "." + a + "." + op.getTime();
+                    final String x = op.getEmail() + "." + k;
+
+                    pg.setVisibility(View.GONE);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(StatusActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
 
     }

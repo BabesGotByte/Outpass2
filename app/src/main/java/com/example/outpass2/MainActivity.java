@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
             }
-        },5000);
+        },500);
     }
 
 //    @Override
